@@ -1,0 +1,42 @@
+{% extends 'header.html' %}
+{% block content %}
+
+<div class="container-fluid content-row">
+    <br>
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4">
+            <div class="card border-success  ml-auto h-100" style="background-color:#f6f6f6; max-width:100%;">
+
+                <div class="card-body ">
+                    <img src="static/img/raw_data.jpg" alt="raw_data" class="img-thumbnail">
+                    <hr class="my-4"><br>
+                    <h5 class="card-title">Dane surowe</h5>
+
+                    <p class="card-text">Tak odpowiedzieli inni</p>
+
+                    <a class="btn btn-danger btn-md " href="/raw" role="button">Zobacz</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card border-success h-100" style="background-color:#f6f6f6; max-width:100%;">
+
+                <div class="card-body">
+                    <img src="static/img/chart2.jpg" alt="chart" class="img-thumbnail">
+                    <hr class="my-4"><br>
+                    <h5 class="card-title">Piękna statystyka</h5>
+
+                    <p class="card-text">Zobacz nasze statystyki</p>
+
+                    <a class="btn btn-danger btn-md" href="/" role="button">Zobacz</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+
+{% endblock %}
