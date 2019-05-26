@@ -3,136 +3,137 @@
 
 {% block content %}
 
-<div class="page-header">
-    <h1>Wyniki</h1>
+<div class="container mx-5 my-5">
+    <div class="page-header">
+        <h1>Wyniki</h1>
+    </div>
+        <div id="piechart_3dRodzaj"> </div>
+        <div id="piechart_3dCzestosc"> </div>
+        <div id="piechart_3dKwota"> </div>
+        <div id="piechart_3dLike"> </div>
+        <div id="piechart_3dWystroj"> </div>
+        <div id="piechart_3dTyp"> </div>
+        <div id="piechart_3dWyglad"> </div>
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load("current", {packages:["corechart"]});
+          google.charts.setOnLoadCallback(drawRodzajChart);
+          google.charts.setOnLoadCallback(drawCzestoscChart);
+          google.charts.setOnLoadCallback(drawKwotaChart);
+          google.charts.setOnLoadCallback(drawLikeChart);
+          google.charts.setOnLoadCallback(drawWystrojChart);
+          google.charts.setOnLoadCallback(drawTypChart);
+          google.charts.setOnLoadCallback(drawWygladChart);
+
+
+          function drawRodzajChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Question');
+            data.addColumn('number', 'Average answer');
+            data.addRows( {{ data.rodzaj|tojson }} );
+
+            var options = {
+              title: 'Jaki rodzaj jedzenia najczęściej wybierasz?',
+              is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3dRodzaj'));
+            chart.draw(data, options);
+          }
+
+          function drawCzestoscChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Question');
+            data.addColumn('number', 'Average answer');
+            data.addRows( {{ data.czestosc|tojson }} );
+
+            var options = {
+              title: 'Czy często jadasz na mieście?',
+              is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3dCzestosc'));
+            chart.draw(data, options);
+          }
+
+          function drawKwotaChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Question');
+            data.addColumn('number', 'Average answer');
+            data.addRows( {{ data.kwota|tojson }} );
+
+            var options = {
+              title: 'Jaką kwotę zazwyczaj wydajesz na posiłek poza domem?',
+              is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3dKwota'));
+            chart.draw(data, options);
+          }
+
+          function drawLikeChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Question');
+            data.addColumn('number', 'Average answer');
+            data.addRows( {{ data.like|tojson }} );
+
+            var options = {
+              title: 'Czy lubisz chodzić do restauracji?',
+              is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3dLike'));
+            chart.draw(data, options);
+          }
+
+          function drawWystrojChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Question');
+            data.addColumn('number', 'Average answer');
+            data.addRows( {{ data.wystroj|tojson }} );
+
+            var options = {
+              title: 'Czy wybierąjac restaurację zwracasz uwagę na wystrój wnętrza?',
+              is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3dWystroj'));
+            chart.draw(data, options);
+          }
+
+          function drawTypChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Question');
+            data.addColumn('number', 'Average answer');
+            data.addRows( {{ data.typ|tojson }} );
+
+            var options = {
+              title: 'Jakie restauracje preferujesz?',
+              is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3dTyp'));
+            chart.draw(data, options);
+          }
+
+          function drawCzestoscWyglad() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Question');
+            data.addColumn('number', 'Average answer');
+            data.addRows( {{ data.wyglad|tojson }} );
+
+            var options = {
+              title: 'Jak ważny jest dla Ciebie wygląd/sposób podania posiłku?',
+              is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3dWyglad'));
+            chart.draw(data, options);
+          }
+        </script>
 </div>
-    <div id="piechart_3dRodzaj"> </div>
-    <div id="piechart_3dCzestosc"> </div>
-    <div id="piechart_3dKwota"> </div>
-    <div id="piechart_3dLike"> </div>
-    <div id="piechart_3dWystroj"> </div>
-    <div id="piechart_3dTyp"> </div>
-    <div id="piechart_3dWyglad"> </div>
-
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawRodzajChart);
-      google.charts.setOnLoadCallback(drawCzestoscChart);
-      google.charts.setOnLoadCallback(drawKwotaChart);
-      google.charts.setOnLoadCallback(drawLikeChart);
-      google.charts.setOnLoadCallback(drawWystrojChart);
-      google.charts.setOnLoadCallback(drawTypChart);
-      google.charts.setOnLoadCallback(drawWygladChart);
-
-
-      function drawRodzajChart() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Question');
-        data.addColumn('number', 'Average answer');
-        data.addRows( {{ data.rodzaj|tojson }} );
-
-        var options = {
-          title: 'Jaki rodzaj jedzenia najczesciej wybierasz?',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3dRodzaj'));
-        chart.draw(data, options);
-      }
-
-      function drawCzestoscChart() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Question');
-        data.addColumn('number', 'Average answer');
-        data.addRows( {{ data.czestosc|tojson }} );
-
-        var options = {
-          title: 'Czy czesto jadasz na miescie?',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3dCzestosc'));
-        chart.draw(data, options);
-      }
-
-      function drawKwotaChart() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Question');
-        data.addColumn('number', 'Average answer');
-        data.addRows( {{ data.kwota|tojson }} );
-
-        var options = {
-          title: 'Jaka kwote zazwyczaj wydajesz na posilek poza domem?',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3dKwota'));
-        chart.draw(data, options);
-      }
-
-      function drawLikeChart() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Question');
-        data.addColumn('number', 'Average answer');
-        data.addRows( {{ data.like|tojson }} );
-
-        var options = {
-          title: 'Czy lubisz chodzic do restauracji?',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3dLike'));
-        chart.draw(data, options);
-      }
-
-      function drawWystrojChart() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Question');
-        data.addColumn('number', 'Average answer');
-        data.addRows( {{ data.wystroj|tojson }} );
-
-        var options = {
-          title: 'Czy wybierajac restauracje zwracasz uwage na wystroj wnetrza?',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3dWystroj'));
-        chart.draw(data, options);
-      }
-
-      function drawTypChart() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Question');
-        data.addColumn('number', 'Average answer');
-        data.addRows( {{ data.typ|tojson }} );
-
-        var options = {
-          title: 'Jakie restauracje preferujesz?',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3dTyp'));
-        chart.draw(data, options);
-      }
-
-      function drawCzestoscWyglad() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Question');
-        data.addColumn('number', 'Average answer');
-        data.addRows( {{ data.wyglad|tojson }} );
-
-        var options = {
-          title: 'Jak wazny jest dla Ciebie wyglad/sposob podania posilku?',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3dWyglad'));
-        chart.draw(data, options);
-      }
-    </script>
-
 
 
 {% endblock %}
