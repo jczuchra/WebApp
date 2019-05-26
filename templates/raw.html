@@ -1,44 +1,46 @@
 {% extends 'header.html' %}
 {% block content %}
 
-<div class="page-header">
-    <h1>Surowe dane</h1>
+<div class="container mx-5 my-5">
+    <div class="page-header">
+        <h1>Surowe dane</h1>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Data dodania</th>
+            <th>Imie</th>
+            <th>Grupa wiekowa</th>
+            <th>Rodzaj jedzenia</th>
+            <th>Czestosc</th>
+            <th>Koszt</th>
+            <th>Czy lubisz?</th>
+            <th>Wystroj wazny?</th>
+            <th>Jakie restauracje?</th>
+            <th>Wyglad posilku wazny? (1-5)</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for element in formdata %}
+        <tr>
+            <td>{{ element.id }}</td>
+            <td>{{ element.dodano }}</td>
+            <td>{{ element.imie }}</td>
+            <td>{{ element.wiek }}</td>
+            <td>{{ element.rodzaj }}</td>
+            <td>{{ element.czestosc }}</td>
+            <td>{{ element.kwota }}</td>
+            <td>{{ element.like }}</td>
+            <td>{{ element.wystroj }}</td>
+            <td>{{ element.typ }}</td>
+            <td>{{ element.wyglad }}</td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
-<table class="table">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Data dodania</th>
-        <th>Imie</th>
-        <th>Grupa wiekowa</th>
-        <th>Rodzaj jedzenia</th>
-        <th>Czestosc</th>
-        <th>Koszt</th>
-        <th>Czy lubisz?</th>
-        <th>Wystroj wazny?</th>
-        <th>Jakie restauracje?</th>
-        <th>Wyglad posilku wazny? (1-5)</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    {% for element in formdata %}
-    <tr>
-        <td>{{ element.id }}</td>
-        <td>{{ element.dodano }}</td>
-        <td>{{ element.imie }}</td>
-        <td>{{ element.wiek }}</td>
-        <td>{{ element.rodzaj }}</td>
-        <td>{{ element.czestosc }}</td>
-        <td>{{ element.kwota }}</td>
-        <td>{{ element.like }}</td>
-        <td>{{ element.wystroj }}</td>
-        <td>{{ element.typ }}</td>
-        <td>{{ element.wyglad }}</td>
-
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
 
 {% endblock %}
