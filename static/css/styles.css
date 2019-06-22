@@ -13,3 +13,7 @@ body {
 .welcome-box-header {
     text-align: center;
 }
+
+.add-data-header {
+    margin: 45px 0px;
+}
