@@ -58,6 +58,7 @@ def thx():
     wystroj = request.form['wystroj']
     typ = request.form['typ']
     wyglad = request.form['wyglad']
+    print(request.form['fileToUpload'])
 
     fd=Formdata(imie, wiek, rodzaj, czestosc, kwota, like, wystroj, typ, wyglad)
     db.session.add(fd)

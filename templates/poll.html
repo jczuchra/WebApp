@@ -2,97 +2,16 @@
 {% block content %}
 
 <div class="container my-5 mx-5">
-    <div class="page-header">
-      <h1>Co najchętniej jadasz na mieście?</h1>
-    </div>
+  <div class="page-header">
+    <h1>Wprowadź plik z danymi EKG</h1>
+  </div>
 
-    <form role="form" action="/thx" method="post">
-        <div class="form-group">
-            <label for="imie">Imie:</label>
-            <input type="text" class="form-control" id="imie" name="imie" required>
-        </div>
-        <div class="form-group">
-            <label for="wiek">Wiek:</label>
-            <select class="form-control" id="wiek" name="wiek">
-            <option>mniej niz 20</option>
-            <option>20-30</option>
-            <option>30-40</option>
-            <option>wiecej niz 40</option>
-            </select>
-        </div>
-        <div class="form-group">
-          <label for="rodzaj">Jaki rodzaj jedzenia najchetniej wybierasz?</label>
-          <select class="form-control" id="rodzaj" name="rodzaj">
-            <option>szybkie typu fastfood</option>
-            <option>wazne, aby bylo z dobrej jakosci skladnikow</option>
-            <option>domowe, czesto wybieram bary mleczne</option>
-            <option>lubie probowac czegos nowego, np. kuchnia orientalna</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="czestosc">Czy czesto jadasz na miescie?</label>
-          <select class="form-control" id="czestosc" name="czestosc">
-            <option>bardzo czesto</option>
-            <option>czasami</option>
-            <option>sporadycznie</option>
-            <option>prawie nigdy</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="kwota">Jaka kwote zazwyczaj wydajesz na posilek poza domem?</label>
-          <select class="form-control" id="kwota" name="kwota">
-            <option>10-25zl</option>
-            <option>25-40zl</option>
-            <option>powyzej 40 zl</option>
-          </select>
-        </div>
-        <b>Czy lubisz chodzic do restauracji?</b>
-        <div class="form-group">
-            <label class="radio-inline">
-              <input type="radio" name="like" value="Tak">Tak
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="like" value="Nie">Nie
-            </label>
-        </div>
-        <b>Czy wybierajac restauracje zwracasz uwage na wystroj wnetrza?</b>
-        <div class="form-group">
-            <label class="radio-inline">
-              <input type="radio" name="wystroj" value="Tak">Tak
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="wystroj" value="Nie">Nie
-            </label>
-        </div>
-        <div class="form-group">
-          <label for="typ">Jakie restauracje preferujesz?</label>
-          <select class="form-control" id="typ" name="typ">
-            <option>z duzym wyborem dan w karcie</option>
-            <option>z kilkoma pozycjami w karcie</option>
-            <option>z jednym okreslonym typem posilku, np. kebab, pizza</option>
-          </select>
-        </div>
-        <b>Jak wazny jest dla Ciebie wyglad/sposob podania posilku? (1-w ogole nieistotny, 5-bardzo wazny)</b>
-        <div class="form-group">
-            <label class="radio">
-              <input type="radio" name="wyglad" value="1">1
-            </label>
-            <label class="radio">
-              <input type="radio" name="wyglad" value="2">2
-            </label>
-            <label class="radio">
-              <input type="radio" name="wyglad" value="3">3
-            </label>
-            <label class="radio">
-              <input type="radio" name="wyglad" value="4">4
-            </label>
-            <label class="radio">
-              <input type="radio" name="wyglad" value="5">5
-            </label>
-        </div>
-
-
-        <button type="submit" class="btn btn-success">Zapisz</button>
-    </form> <br /> <br /> <br />
+  <!-- <form role="form" action="/thx" method="post"> -->
+  <form class="form-group" action="/thx" method="post" enctype="multipart/form-data">
+    Wybierz plik z danymi:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
+  </form>
+  <!-- </form> -->
 </div>
 {% endblock %}
